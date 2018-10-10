@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://ww.thymeleaf.org">
+	<head>
+		<title th:replace="fragments/fragment :: title"></title>
+		
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+	<body>
+		<nav th:replace="fragments/fragment :: navbar"></nav>
+		
+		<h3>Update Dealer</h3>
+		<form th:action="@{/dealer/update/} + ${oldDealer.id}" th:object="${newDealer}" method="POST">
+			Alamat: <br>
+			<input type="text" name="alamat" th:field="${oldDealer.alamat}"/>
+			<br>
+			No. Telp: <br>
+			<input type="text" name="noTelp" th:field="${oldDealer.noTelp}"/>
+			<br><br>
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
